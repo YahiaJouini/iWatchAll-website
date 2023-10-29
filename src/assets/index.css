@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Start Header styling */
+body {
+  font-family: 'Overpass', sans-serif;
+  background: #ecf1f4;
+  height: 200vh;
+}
+header {
+  background-color: #2b2c43;
+  margin-bottom: 40px;
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
+  height: 75px;
+  margin: 0 auto;
+}
+header h1 {
+  color: white;
+  cursor: pointer;
+}
+header h1 span {
+  color: #03a8ff;
+}
+header nav {
+  width: 450px;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+}
+ul li a{
+  text-decoration: none;
+  color: #bec3df;
+  font-size: 18px;
+  font-weight: 600;
+}
+ul li a:hover {
+  color: #dadce9;
+}
+
+
+
+/* Start Search Bar styling */
+
+.container {
+  width: 70%;
+  margin: 0 auto;
+}
+.search-container {
+  display: flex;
+  height: 40px;
+  margin-bottom: 60px;
+}
+.search-container input{
+  width: 100%;
+  border: none;
+  border-radius: 30px 0 0 30px;
+  outline: none;
+  background-color: #fbfafa;
+  padding-left: 30px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+}
+.search-container button {
+  width: 100px;
+  background-color: #03a8ff;
+  border: none;
+  border-radius: 0 30px 30px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #ecf1f4;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+
+
+/* Start Styling The Slider */
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.slider-container h2 {
+  color: #657381;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+.slider {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  background-image: url('../latest.png');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.slider img {
+  height: 250px;
+  border-radius: 10px;
+  filter:unset;
+  
+}
+.slider .content {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.content .info {
+  color: white;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
