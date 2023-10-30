@@ -8,7 +8,7 @@ export default function Header() {
                 <ul>
                     <li><NavLink to="/Anime">Anime</NavLink></li>
                     <li><NavLink to="/tv-shows">TV Shows</NavLink></li>
-                    <li><NavLink to="/">Movies</NavLink></li>
+                    <li><NavLink to="/movie">Movies</NavLink></li>
                 </ul>
             </nav>
             </div>

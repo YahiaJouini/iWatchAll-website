@@ -1,6 +1,7 @@
 import Header from "./components/Header";
 import Movies from "./Files/Movies";
-import Anime from "./Files/Anime"
+import Anime from "./Files/Anime";
+import TvShows from './Files/TvShows'
 import {BrowserRouter, Routes,Route } from "react-router-dom";
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
     <BrowserRouter>
       <Header/>
       <Routes>
-        <Route path='/' element={<Movies />} />
-        <Route path='/tv-shows' element={<Movies />} />
+        <Route path='/movie' element={<Movies />} />
+        <Route path='/tv-shows' element={<TvShows />} />
         <Route path='/anime' element={<Anime />} />
       </Routes>
     </BrowserRouter>
