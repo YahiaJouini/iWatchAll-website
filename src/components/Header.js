@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 export default function Header() {
     return (
         <header>
@@ -5,9 +6,9 @@ export default function Header() {
             <h1>iWatch<span>All</span></h1>
             <nav>
                 <ul>
-                    <li><a href="#anime">Anime</a></li>
-                    <li><a href="#tv-shows">TV Shows</a></li>
-                    <li><a href="#movies">Movies</a></li>
+                    <li><NavLink to="/Anime">Anime</NavLink></li>
+                    <li><NavLink to="/tv-shows">TV Shows</NavLink></li>
+                    <li><NavLink to="/">Movies</NavLink></li>
                 </ul>
             </nav>
             </div>

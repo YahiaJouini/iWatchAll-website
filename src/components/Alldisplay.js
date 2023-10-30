@@ -1,8 +1,8 @@
-import img from '../test-image.png';
+
 import Poster from './Poster';
-export default function Alldisplay () {
+export default function Alldisplay ({image}) {
     const posters = {
-        backgroundImage: `url(${img})`,
+        backgroundImage: `url(${image})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',

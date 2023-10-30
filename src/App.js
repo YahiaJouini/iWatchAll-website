@@ -1,16 +1,19 @@
 import Header from "./components/Header";
-import Search from "./components/Search";
-import Slider from "./components/Slider";
-import Alldisplay from "./components/Alldisplay";
+import Movies from "./Files/Movies";
+import Anime from "./Files/Anime"
+import {BrowserRouter, Routes,Route } from "react-router-dom";
 function App() {
   return (
     <>
-    <Header/>
-    <div className="container">
-      <Search />
-      <Slider />
-      <Alldisplay />
-    </div>
+
+    <BrowserRouter>
+      <Header/>
+      <Routes>
+        <Route path='/' element={<Movies />} />
+        <Route path='/tv-shows' element={<Movies />} />
+        <Route path='/anime' element={<Anime />} />
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

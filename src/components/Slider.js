@@ -1,11 +1,11 @@
-import poster from '../test-image.png';
+
 import {BiSolidChevronLeft as LeftArrow,BiSolidChevronRight as RightArrow} from 'react-icons/bi';
 import {AiFillStar as Star} from 'react-icons/ai'
 
 
-export default function Slider() {
+export default function Slider({image}) {
     const bgImage={
-        backgroundImage: `url(${poster})`,
+        backgroundImage: `url(${image})`,
         backgroundPosition: 'center',
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat'
@@ -16,7 +16,7 @@ export default function Slider() {
             <div className="slider" style={bgImage}>
                 <div className='content'>
                     <button><LeftArrow className='arrow-icon' /></button>
-                    <img src={poster} alt="Movie Poster"/>
+                    <img src={image} alt="Movie Poster"/>
                     <div className='info'>
                         <small>7.1 {<Star />}</small>
                         <h2>Oregairu</h2>
