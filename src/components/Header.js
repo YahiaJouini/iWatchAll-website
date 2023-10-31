@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 export default function Header() {
     return (
         <header>
             <div className="header-content">
-            <h1>iWatch<span>All</span></h1>
+            <Link to="/" ><h1>iWatch<span>All</span></h1></Link>
             <nav>
                 <ul>
                     <li><NavLink to="/Anime">Anime</NavLink></li>

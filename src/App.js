@@ -3,7 +3,10 @@ import Movies from "./Files/Movies";
 import Anime from "./Files/Anime";
 import TvShows from './Files/TvShows'
 import {BrowserRouter, Routes,Route } from "react-router-dom";
+
+
 const apiKey="5b131e1d20c39f695a7411e422d4db37";
+
 function App() {
   return (
     <>
