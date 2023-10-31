@@ -57,7 +57,7 @@ ul li a:hover {
 }
 .search-container {
   display: flex;
-  height: 40px;
+  height: 46px;
   margin-bottom: 80px;
 }
 .search-container input{
@@ -227,9 +227,13 @@ ul li a:hover {
   border-radius: 10px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   transition: all .3s ease;
+  margin: 60px 0 ;
 }
 .more:hover {
   background-color: #2b2c43;
   cursor: pointer;
   color: #d5d6e9;
+}
+.more:disabled {
+  cursor: not-allowed;
 }

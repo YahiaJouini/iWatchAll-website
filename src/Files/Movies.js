@@ -4,20 +4,21 @@ import Alldisplay from "../components/Alldisplay"
 import poster from '../Movie-test-image.jpg';
 import { useEffect, useState } from "react";
 
-const apiKey="5b131e1d20c39f695a7411e422d4db37";
-
-
-export default function Movies () {
+export default function Movies ({apiKey}) {
     const [movies,setMovies] = useState([]);
+    const [page, setPage] = useState(1);
+    const [disable,setDisable] = useState(false);
     useEffect(()=>{
-      fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&media_type=movie`)
-      .then(res=>res.json()).then(data=>setMovies(data.results));
-    },[]);
+      fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}&media_type=movie`)
+      .then(res=>res.json()).then(data=>{
+        data.results.length>0 ? setMovies([...movies, ...data.results]) : setDisable(true)
+      });
+    },[page]);
     return (
       <div className="container">
         <Search />
         <Slider image={poster}/>
-        <Alldisplay movies={movies}/>
+        <Alldisplay disabled={disable} setPage={setPage} allMedia={movies}/>
       </div>
     )
 }
