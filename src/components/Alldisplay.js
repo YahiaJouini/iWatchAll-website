@@ -1,21 +1,11 @@
 
 import Poster from './Poster';
-export default function Alldisplay ({image}) {
-    const posters = {
-        backgroundImage: `url(${image})`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-    }
+export default function Alldisplay ({movies}) {
     return (
         <div className="display-container">
             <h2>Popular Now</h2>
             <div className='content'>
-                <Poster posters={posters} />
-                <Poster posters={posters} />
-                <Poster posters={posters} />
-                <Poster posters={posters} />
-                <Poster posters={posters} />
+                {movies.map((movie,idx) => <Poster key={idx} title={movie.title} poster={movie.poster_path} />)}
             </div>
             <button className='more'>Show More</button>
         </div>

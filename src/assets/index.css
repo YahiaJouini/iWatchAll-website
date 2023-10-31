@@ -107,6 +107,9 @@ ul li a:hover {
   padding: 20px;
   border-radius: 12px;
   position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .slider::before {
   content: "";
@@ -202,6 +205,9 @@ ul li a:hover {
   border-radius: 10px;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
+  background-position:center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .poster-container h3{
