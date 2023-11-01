@@ -171,19 +171,24 @@ ul li a:hover,a.active {
   font-size: 1.1rem;
   display: flex;
   gap: 4px;
+  margin-bottom: 5px;
 }
 .info h4, .info p{
   color: #e2e9e9;
   letter-spacing: 1px;
+  margin: 8px 0;
 }
-
+.info p {
+  width: 65%;
+  line-height: 1.2;
+}
 
 
 /* Popular Shows Styling */
 .display-container .content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-  gap: 0 60px;
+  gap: 0px 60px;
   margin-bottom: 20px;
 }
 .display-container>h2 {
@@ -198,7 +203,7 @@ ul li a:hover,a.active {
   transition: all .2s ease;
 }
 .poster-container:hover {
-  transform: scale(1.02) translateY(-5px);
+  transform: scale(1.025) translateY(-5px);
   cursor: pointer;
 }
 .display-poster {
@@ -215,7 +220,7 @@ ul li a:hover,a.active {
 .poster-container h3{
   text-align: center;
   color: #74899b;
-  word-break: break-all;
+  overflow-wrap:break-word;
   margin-bottom: 20px;
 }
 
