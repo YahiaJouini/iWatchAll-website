@@ -5,10 +5,11 @@ import { BiSolidChevronLeft as LeftArrow, BiSolidChevronRight as RightArrow } fr
 
 // importing Hooks 
 import { useEffect, useState } from 'react';
+import { apiKey } from '../assets/ApiKey';
 
 
 
-export default function Slide({ apiKey, genreList, length, setSlide, title, rate, poster, overview}) {
+export default function Slide({ genreList, length, setSlide, title, rate, poster, overview }) {
 
     const posterPath = `https://image.tmdb.org/t/p/w500/${poster}`;
     const [genres, setGenres] = useState([])

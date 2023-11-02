@@ -1,9 +1,11 @@
-export default function Poster({ title, poster }) {
-    const posterPath = `https://image.tmdb.org/t/p/w500/${poster}`;
+export default function Poster({ HandleDetail, media }) {
+    const posterPath = `https://image.tmdb.org/t/p/w500/${media.poster_path}`;
     return (
-        <div className="poster-container">
-            <div className='display-poster' style={{ backgroundImage: `URL(${posterPath})` }}></div>
-            <h3>{title}</h3>
-        </div>
+        <>
+            <div className="poster-container" onClick={HandleDetail}>
+                <div className='display-poster' style={{ backgroundImage: `URL(${posterPath})` }}></div>
+                <h3>{media.title ? media.title : media.name}</h3>
+            </div>
+        </>
     )
 }

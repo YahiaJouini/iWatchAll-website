@@ -1,9 +1,11 @@
 import Search from "../components/Search";
 import Slider from "../components/Slider";
 import Alldisplay from "../components/Alldisplay"
-import poster2 from '../Tvshow-test-image.jpg';
 import { useState, useEffect } from "react";
-export default function Movies({ apiKey }) {
+
+import { apiKey } from "../assets/ApiKey";
+
+export default function Movies() {
 
 
   // setting up the hooks
@@ -12,6 +14,7 @@ export default function Movies({ apiKey }) {
   const [FiltredResults, setFiltredResults] = useState([]);
   const [idx, setIdx] = useState(10);
   const [res, setRes] = useState([]);
+  const [Trending, setTrending] = useState([]);
   const [disable, setDisable] = useState(false);
 
   useEffect(() => {
@@ -23,8 +26,15 @@ export default function Movies({ apiKey }) {
           setPage(page + 1);
         }
       });
-    setFiltredResults(Tvshow.filter(show => show.original_language !== "ja"));
+    setFiltredResults(Tvshow.filter(show => !show.genre_ids.includes(16)));
     setRes(FiltredResults.slice(0, idx)); // to show at least once
+
+    const date = new Date().getFullYear();
+
+    setTrending(FiltredResults.filter(FiltredResult =>
+      FiltredResult.vote_average > 8
+      && FiltredResult.overview
+      && new Date(FiltredResult.first_air_date).getFullYear() === date));
   }, [page]);
 
   // to show 10 by 10
@@ -40,7 +50,7 @@ export default function Movies({ apiKey }) {
   return (
     <div className="container">
       <Search />
-      <Slider image={poster2} />
+      <Slider apiKey={apiKey} trending={Trending} />
       <Alldisplay disabled={disable} HandleClick={ShowMore} setPage={setPage} allMedia={res} />
     </div>
   )

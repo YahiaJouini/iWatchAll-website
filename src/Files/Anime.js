@@ -3,9 +3,11 @@ import Slider from "../components/Slider";
 import Alldisplay from "../components/Alldisplay"
 import { useState, useEffect } from "react";
 
+import { apiKey } from "../assets/ApiKey";
 
 
-export default function Movies({ apiKey }) {
+
+export default function Movies() {
 
   // setting up the hooks
   const [anime, setAnime] = useState([]);
@@ -28,7 +30,7 @@ export default function Movies({ apiKey }) {
 
     setFiltredResults(anime.filter(ani => ani.original_language === "ja"));
 
-    let date = new Date().getFullYear();
+    const date = new Date().getFullYear();
 
     setTrending(FiltredResults.filter(FiltredResult =>
       FiltredResult.vote_average >= 7
@@ -41,7 +43,7 @@ export default function Movies({ apiKey }) {
 
   }, [page]);
 
-  
+
   // to show 10 by 10
   function ShowMore() {
     if (idx + 10 <= FiltredResults.length) {
