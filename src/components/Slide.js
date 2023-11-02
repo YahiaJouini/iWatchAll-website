@@ -3,7 +3,6 @@ import { AiFillStar as Star } from 'react-icons/ai';
 import { BiSolidChevronLeft as LeftArrow, BiSolidChevronRight as RightArrow } from 'react-icons/bi';
 
 
-// importing Hooks 
 import { useEffect, useState } from 'react';
 import { apiKey } from '../assets/ApiKey';
 

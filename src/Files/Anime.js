@@ -1,8 +1,10 @@
 import Search from "../components/Search";
 import Slider from "../components/Slider";
-import Alldisplay from "../components/Alldisplay"
-import { useState, useEffect } from "react";
+import Alldisplay from "../components/Alldisplay";
 
+
+
+import { useState, useEffect } from "react";
 import { apiKey } from "../assets/ApiKey";
 
 
@@ -19,6 +21,7 @@ export default function Movies() {
   const [disable, setDisable] = useState(false);
 
   useEffect(() => {
+
     fetch(`https://api.themoviedb.org/3/trending/tv/day?api_key=${apiKey}&page=${page}`)
       .then(res => res.json()).then(data => {
         if (data.results && page < 200) // limiting the fetching to 200 pages because it can go up to 500 pages!
@@ -26,6 +29,7 @@ export default function Movies() {
           setAnime([...anime, ...data.results]);
           setPage(page + 1);
         }
+
       });
 
     setFiltredResults(anime.filter(ani => ani.original_language === "ja"));

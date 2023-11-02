@@ -1,5 +1,5 @@
-import { useState } from "react"
-import Slide from "./Slide"
+import Slide from "./Slide";
+import { useState } from "react";
 
 
 export default function Slider({ trending}) {
@@ -15,7 +15,7 @@ export default function Slider({ trending}) {
                                                );
 
     return (
-        <div className="slider-container"  >
+        <div className="slider-container" >
             <h2>New Releases</h2>
             {display[slide]}
         </div>

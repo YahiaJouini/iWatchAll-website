@@ -1,8 +1,10 @@
 import Search from "../components/Search";
 import Slider from "../components/Slider";
 import Alldisplay from "../components/Alldisplay"
-import { useState, useEffect } from "react";
 
+
+
+import { useState, useEffect } from "react";
 import { apiKey } from "../assets/ApiKey";
 
 export default function Movies() {
