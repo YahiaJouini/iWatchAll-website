@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +11,12 @@ body {
   font-family: 'Overpass', sans-serif;
   background: #ecf1f4;
 }
+
 header {
   background-color: #2b2c43;
   margin-bottom: 40px;
 }
+
 .header-content {
   display: flex;
   justify-content: space-between;
@@ -22,30 +25,38 @@ header {
   height: 75px;
   margin: 0 auto;
 }
+
 header h1 {
   color: white;
   cursor: pointer;
 }
+
 header h1 span {
   color: #03a8ff;
 }
+
 header nav {
   width: 450px;
 }
+
 header nav ul {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
 }
+
 a {
   text-decoration: none;
 }
-ul li a{
+
+ul li a {
   color: #bec3df;
   font-size: 19px;
   font-weight: 600;
 }
-ul li a:hover,a.active {
+
+ul li a:hover,
+a.active {
   color: #ebecf1;
 }
 
@@ -56,12 +67,14 @@ ul li a:hover,a.active {
   width: 70%;
   margin: 0 auto;
 }
+
 .search-container {
   display: flex;
   height: 46px;
   margin-bottom: 80px;
 }
-.search-container input{
+
+.search-container input {
   width: 100%;
   border: none;
   border-radius: 30px 0 0 30px;
@@ -71,6 +84,7 @@ ul li a:hover,a.active {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   font-size: 18px;
 }
+
 .search-container button {
   width: 100px;
   background-color: #03a8ff;
@@ -93,11 +107,13 @@ ul li a:hover,a.active {
   justify-content: center;
   margin-bottom: 80px;
 }
+
 .slider-container>h2 {
   color: #657381;
   margin-bottom: 20px;
   letter-spacing: 1px;
 }
+
 .slider {
   position: relative;
   display: flex;
@@ -112,7 +128,9 @@ ul li a:hover,a.active {
   background-size: cover;
   background-repeat: no-repeat;
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -22px;
+  transition: all .4s ease;
 }
+
 .slider::before {
   content: "";
   position: absolute;
@@ -120,42 +138,47 @@ ul li a:hover,a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(32, 32, 32, 0.8);
+  background-color: rgba(32, 32, 32, 0.85);
   border-radius: 12px;
-  transition: all .3s ease;
+  transition: all .4s ease;
 }
-.slider:hover::before{
-  background-color: rgba(32, 32, 32, .7);
+
+.slider:hover::before {
+  background-color: rgba(32, 32, 32, .8);
 }
+
 .slider img {
-  height: 275px;
+  height: 285px;
   border-radius: 10px;
-  filter:unset;
   z-index: 1;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px, rgba(14, 30, 37, 0.42) 0px 2px 12px 0px;
 }
+
 .slider .content {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
   z-index: 1;
 }
+
 .slider button {
-  width: 35px;
-  height: 35px;
   background-color: rgba(0, 0, 0, 0.4);
   border: none;
   border-radius: 2px;
   color: white;
   z-index: 1;
+  padding: 10px;
 }
+
 .slider button:hover {
   background-color: #03a8ff;
   cursor: pointer;
 }
+
 .arrow-icon {
   size: 2rem;
   font-size: 20px;
+
 }
 
 .content .info {
@@ -171,56 +194,66 @@ ul li a:hover,a.active {
   font-size: 1.1rem;
   display: flex;
   gap: 4px;
-  margin-bottom: 5px;
 }
-.info h4, .info p{
-  color: #e2e9e9;
+
+.info h4,
+.info p {
+  color: #e7ecec;
   letter-spacing: 1px;
+}
+
+.info h2 {
   margin: 8px 0;
 }
+
 .info p {
-  width: 65%;
-  line-height: 1.2;
+  width: 80%;
+  line-height: 1.3;
+  margin-top: 10px;
 }
 
 
 /* Popular Shows Styling */
 .display-container .content {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 0px 60px;
   margin-bottom: 20px;
 }
+
 .display-container>h2 {
   margin-bottom: -20px;
   color: #74899b;
   letter-spacing: 1px;
 }
+
 .poster-container {
   width: 210px;
   margin: 60px 0;
   height: 300px;
   transition: all .2s ease;
 }
+
 .poster-container:hover {
   transform: scale(1.025) translateY(-5px);
   cursor: pointer;
 }
+
 .display-poster {
   width: 100%;
   height: 100%;
   border-radius: 10px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px, rgba(14, 30, 37, 0.42) 0px 2px 12px 0px;
   margin-bottom: 20px;
-  background-position:center;
+  background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 
-.poster-container h3{
+.poster-container h3 {
   text-align: center;
   color: #74899b;
-  overflow-wrap:break-word;
+  overflow-wrap: break-word;
   margin-bottom: 20px;
 }
 
@@ -235,13 +268,15 @@ ul li a:hover,a.active {
   border-radius: 10px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px, rgba(14, 30, 37, 0.42) 0px 2px 12px 0px;
   transition: all .3s ease;
-  margin: 60px 0 ;
+  margin: 60px 0;
 }
+
 .more:hover {
   background-color: #2b2c43;
   cursor: pointer;
   color: #d5d6e9;
 }
+
 .more:disabled {
   cursor: not-allowed;
 }

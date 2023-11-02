@@ -1,5 +1,5 @@
-
 import Poster from './Poster';
+
 export default function Alldisplay({ disabled, HandleClick, allMedia }) {
     return (
         <div className="display-container">
