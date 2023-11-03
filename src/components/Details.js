@@ -28,7 +28,6 @@ export default function Details({ HandleDetail, detail }) {
         }, []);
     };
     FetchAll();
-    console.log(trailerPath)
 
     const FilterGenres = genres
         .filter(genre => detail.genre_ids && detail.genre_ids.includes(genre.id))
@@ -58,7 +57,7 @@ export default function Details({ HandleDetail, detail }) {
                     <p>{detail.overview}</p>
                     {
                         pathLink ? (<a href={pathLink} target='_blank' rel='noopener'>{'Watch The Trailer'}</a>)
-                                 : (<a style={{ cursor: "not-allowed" }}>Trailer Not Available</a>)
+                                 : (<a style={{ pointerEvents: "none" }}>Trailer Not Available</a>)
                     }
                 </div>
             </div>

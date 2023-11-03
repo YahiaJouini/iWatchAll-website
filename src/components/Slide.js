@@ -44,7 +44,7 @@ export default function Slide({ genreList, length, setSlide, title, rate, poster
                 <div className='info'>
                     <small>{rate.toFixed(1)} {<Star />}</small>
                     <h2>{title}</h2>
-                    <h4>Genre : {GenresResult.map(genre => genre + " ")} </h4>
+                    <h4>Genre : {GenresResult.map(genre => genre + " ").join('- ')} </h4>
                     <p>{overview}</p>
                 </div>
             </div>

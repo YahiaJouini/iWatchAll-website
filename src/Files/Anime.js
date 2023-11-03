@@ -15,10 +15,17 @@ export default function Movies() {
   const [anime, setAnime] = useState([]);
   const [page, setPage] = useState(1);
   const [FiltredResults, setFiltredResults] = useState([]);
-  const [idx, setIdx] = useState(10);
-  const [res, setRes] = useState([]);
+
+
+  // setting the Displayed genres
+  const [crime, setCrime] = useState([]);
+  const [romance, setRomance] = useState([]);
+  const [comedy, setComedy] = useState([]);
   const [Trending, setTrending] = useState([]);
-  const [disable, setDisable] = useState(false);
+  const [family, setfamily] = useState([]);
+
+  // to display current Year Anime
+  const date = new Date().getFullYear();
 
   useEffect(() => {
 
@@ -34,7 +41,6 @@ export default function Movies() {
 
     setFiltredResults(anime.filter(ani => ani.original_language === "ja"));
 
-    const date = new Date().getFullYear();
 
     setTrending(FiltredResults.filter(FiltredResult =>
       FiltredResult.vote_average >= 7
@@ -42,29 +48,25 @@ export default function Movies() {
       && FiltredResult.genre_ids.includes(16)
       && new Date(FiltredResult.first_air_date).getFullYear() === date));
 
-
-    setRes(FiltredResults.slice(0, idx)); // to show at least once
+    setCrime(FiltredResults.filter(FR => FR.genre_ids.includes(80) || FR.genre_ids.includes(53)))
+    setRomance(FiltredResults.filter(FR => FR.genre_ids.includes(10749) || FR.genre_ids.includes(18)));
+    setComedy(FiltredResults.filter(FR => FR.genre_ids.includes(35)))
+    setfamily(FiltredResults.filter(FR => FR.genre_ids.includes(10751)))
 
   }, [page]);
 
 
-  // to show 10 by 10
-  function ShowMore() {
-    if (idx + 10 <= FiltredResults.length) {
-      let tempData = FiltredResults.slice(idx, idx + 10);
-      setRes([...res, ...tempData]);
-      setIdx(idx + 10);
-    } else {
-      setDisable(true);
-    }
-  }
-
-
   return (
     <div className="container">
+
       <Search />
       <Slider apiKey={apiKey} trending={Trending} />
-      <Alldisplay disabled={disable} HandleClick={ShowMore} allMedia={res} />
+      {FiltredResults.length >= 5 ? (<Alldisplay heading="Trending Now" allMedia={FiltredResults} />) : <></>}
+      {romance.length >= 5 ? (<Alldisplay heading="Drama & Romance" allMedia={romance} />) : <></>}
+      {crime.length >= 5 ? (<Alldisplay heading="Crime & Thriller" allMedia={crime} />) : <></>}
+      {comedy.length >= 5 ? (<Alldisplay heading="Comedy" allMedia={comedy} />) : <></>}
+      {family.length >= 5 ? (<Alldisplay heading="Family" allMedia={family} />) : <></>}
+
     </div>
   )
 }

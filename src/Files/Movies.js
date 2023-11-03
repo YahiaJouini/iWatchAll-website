@@ -10,12 +10,20 @@ export default function Movies() {
   // setting up the hooks
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [idx, setIdx] = useState(10);
-  const [res, setRes] = useState([]);
-  const [Trending, setTrending] = useState([]);
-  const [disable, setDisable] = useState(false);
 
-  // add 10 by 10
+
+  // setting the Displayed genres
+  const [crime, setCrime] = useState([]);
+  const [romance, setRomance] = useState([]);
+  const [comedy, setComedy] = useState([]);
+  const [Documentary, setDocumentary] = useState([])
+  const [animation, setAnimation] = useState([]);
+  const [Trending, setTrending] = useState([]);
+
+  // to display current Year Movies
+  const date = new Date().getFullYear();
+
+
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&page=${page}&media_type=movie`)
       .then(res => res.json()).then(data => {
@@ -25,30 +33,34 @@ export default function Movies() {
           setPage(page + 1);
         }
       });
-    setRes(movies.slice(0, idx)); // to show at least once
-    const date = new Date().getFullYear();
+
     setTrending(movies.filter(FiltredResult =>
       FiltredResult.vote_average >= 8
       && FiltredResult.overview
       && new Date(FiltredResult.release_date).getFullYear() === date));
+
+    setCrime(movies.filter(movie => movie.genre_ids.includes(80) || movie.genre_ids.includes(53)))
+    setRomance(movies.filter(movie => movie.genre_ids.includes(10749) || movie.genre_ids.includes(18)));
+    setComedy(movies.filter(movie => movie.genre_ids.includes(35)))
+    setAnimation(movies.filter(movie => movie.genre_ids.includes(16)))
+    setDocumentary(movies.filter(movie => movie.genre_ids.includes(99)))
+
   }, [page]);
 
 
-  function ShowMore() {
-    if (idx + 10 <= movies.length) {
-      let tempData = movies.slice(idx, idx + 10);
-      setRes([...res, ...tempData]);
-      setIdx(idx + 10);
-    } else {
-      setDisable(true);
-    }
-  }
 
   return (
     <div className="container">
+
       <Search />
       <Slider apiKey={apiKey} trending={Trending} />
-      <Alldisplay disabled={disable} HandleClick={ShowMore} setPage={setPage} allMedia={res} />
+      {movies.length >= 5 ? (<Alldisplay heading="Trending Now" allMedia={movies} />) : <></>}
+      {romance.length >= 5 ? (<Alldisplay heading="Drama & Romance" allMedia={romance} />) : <></>}
+      {crime.length >= 5 ? (<Alldisplay heading="Crime & Thriller" allMedia={crime} />) : <></>}
+      {Documentary.length >= 5 ? (<Alldisplay heading="Documentary" allMedia={Documentary} />) : <></>}
+      {comedy.length >= 5 ? (<Alldisplay heading="Comedy" allMedia={comedy} />) : <></>}
+      {animation.length >= 5 ? (<Alldisplay heading="Animation" allMedia={animation} />) : <></>}
+
     </div>
   )
 }
