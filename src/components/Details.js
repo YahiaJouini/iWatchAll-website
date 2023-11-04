@@ -5,9 +5,10 @@ import { useState, useEffect } from "react";
 
 
 export default function Details({ HandleDetail, detail }) {
-    
+
     const [genres, setGenres] = useState([]);
     const [trailerPath, setTrailerPath] = useState("");
+    const posterPath = `https://image.tmdb.org/t/p/w500/${detail.poster_path}`;
 
     function FetchAll() {
 
@@ -34,7 +35,6 @@ export default function Details({ HandleDetail, detail }) {
         .map(genreName => genreName.name)
         .join(", ");
 
-    const posterPath = `https://image.tmdb.org/t/p/w500/${detail.poster_path}`;
     const pathLink = trailerPath[0] ? `https://www.youtube.com/watch?v=${trailerPath[0].key}` : "";
 
     return (
@@ -57,7 +57,7 @@ export default function Details({ HandleDetail, detail }) {
                     <p>{detail.overview}</p>
                     {
                         pathLink ? (<a href={pathLink} target='_blank' rel='noopener'>{'Watch The Trailer'}</a>)
-                                 : (<a style={{ pointerEvents: "none" }}>Trailer Not Available</a>)
+                            : (<a style={{ pointerEvents: "none" }}>Trailer Not Available</a>)
                     }
                 </div>
             </div>
