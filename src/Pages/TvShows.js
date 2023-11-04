@@ -1,6 +1,7 @@
 import Search from "../components/Search";
 import Slider from "../components/Slider";
-import Alldisplay from "../components/Alldisplay"
+import Alldisplay from "../components/Alldisplay";
+import SearchResult from "../components/SearchResult";
 
 
 
@@ -9,11 +10,13 @@ import { apiKey } from "../assets/ApiKey";
 
 export default function Movies() {
 
-
   // setting up the hooks
   const [Tvshow, setTvshow] = useState([]);
   const [page, setPage] = useState(1);
   const [FiltredResults, setFiltredResults] = useState([]);
+  const [isSearching, setIssearching] = useState(false);
+  const [input, setInput] = useState("");
+  const [searchedData, setSearchedData] = useState([]);
 
 
   // setting the Displayed genres
@@ -37,6 +40,7 @@ export default function Movies() {
           setPage(page + 1);
         }
       });
+
     setFiltredResults(Tvshow.filter(show => !show.genre_ids.includes(16)));
 
 
@@ -45,18 +49,35 @@ export default function Movies() {
       && FR.overview
       && new Date(FR.first_air_date).getFullYear() === date));
 
-    setCrime(FiltredResults.filter(FR => FR.genre_ids.includes(80) || FR.genre_ids.includes(53)))
+    setCrime(FiltredResults.filter(FR => FR.genre_ids.includes(80) || FR.genre_ids.includes(53)));
     setRomance(FiltredResults.filter(FR => FR.genre_ids.includes(10749) || FR.genre_ids.includes(18)));
-    setComedy(FiltredResults.filter(FR => FR.genre_ids.includes(35)))
-    setDocumentary(FiltredResults.filter(FR => FR.genre_ids.includes(99)))
-    setfamily(FiltredResults.filter(FR => FR.genre_ids.includes(10751)))
+    setComedy(FiltredResults.filter(FR => FR.genre_ids.includes(35)));
+    setDocumentary(FiltredResults.filter(FR => FR.genre_ids.includes(99)));
+    setfamily(FiltredResults.filter(FR => FR.genre_ids.includes(10751)));
+
   }, [page]);
 
+  useEffect(() => {
 
+    setSearchedData(FiltredResults.filter(fr => fr.name.toUpperCase().indexOf(input.toUpperCase()) !== -1));
+
+  }, [input])
+
+  if (isSearching) {
+    return (
+      <>
+      
+        <div className="container">
+          <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
+          <SearchResult heading={`Search Results for ${input}`} searchedData={searchedData} />
+        </div>
+        
+      </>
+    )
+  }
   return (
     <div className="container">
-
-      <Search />
+      <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
       <Slider apiKey={apiKey} trending={Trending} />
       {FiltredResults.length >= 5 ? (<Alldisplay heading="Trending Now" allMedia={FiltredResults} />) : <></>}
       {Documentary.length >= 5 ? (<Alldisplay heading="Documentary" allMedia={Documentary} />) : <></>}
@@ -64,7 +85,6 @@ export default function Movies() {
       {crime.length >= 5 ? (<Alldisplay heading="Crime & Thriller" allMedia={crime} />) : <></>}
       {family.length >= 5 ? (<Alldisplay heading="Family" allMedia={family} />) : <></>}
       {romance.length >= 5 ? (<Alldisplay heading="Drama & Romance" allMedia={romance} />) : <></>}
-
     </div>
   )
 }

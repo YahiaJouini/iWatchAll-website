@@ -3,7 +3,9 @@ import { BiLogoGmail } from 'react-icons/bi'
 export default function Footer() {
     return (
         <footer>
-            <a href="#top" ><h1 className="main-title">iWatch<span>All</span></h1></a>
+            <h1 onClick={() => {
+                window.scrollTo(0, 0)
+            }} className="main-title">iWatch<span>All</span></h1>
             <p>Here, you'll find everything you need to know about your favorite titles,
                 from detailed information about storylines, characters, ratings,
                 to the latest news and trailers.
