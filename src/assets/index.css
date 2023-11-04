@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 /* Start Header styling */
@@ -26,12 +27,12 @@ header {
   margin: 0 auto;
 }
 
-header h1 {
+.main-title {
   color: white;
   cursor: pointer;
 }
 
-header h1 span {
+.main-title span {
   color: #03a8ff;
 }
 
@@ -381,12 +382,13 @@ ul li a:hover::after {
   background-color: rgb(5, 31, 43);
   display: flex;
   color: #f0f3f6;
-  width: 60%;
-  height: 450px;
+  width: 66%;
+  height: 485px;
   overflow: auto;
   margin: 40px auto;
   z-index: 1;
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, .5);
+  border-radius: 10px;
 }
 
 .detail-container .info {
@@ -447,4 +449,54 @@ ul li a:hover::after {
 .info-button .close-icon:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+
+/* styling the footer  */
+
+footer {
+  background: #2b2c43;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0 10px 0;
+}
+
+footer p {
+  margin: 10px 0;
+  width: 45%;
+  text-align: center;
+  color: #e7ecec;
+  line-height: 1.8;
+  font-size: 18px;
+
+}
+
+footer .copyright {
+
+  color: #e7ecec;
+  letter-spacing: 1px;
+  font-size: 15px;
+}
+
+footer .social-links {
+  display: flex;
+  width: 20%;
+  justify-content: space-around;
+  size: 2rem;
+}
+
+footer a {
+  all: unset;
+}
+
+footer .social {
+  color: white;
+  margin-bottom: 20px;
+  transition: all .2s ease;
+}
+
+footer .social:hover {
+  color: #03a8ff;
+  cursor: pointer;
 }

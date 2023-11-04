@@ -37,7 +37,7 @@ export default function Alldisplay({ heading, allMedia }) {
     }
     return (
         // adding an id to create short navigation feature
-        <div className="display-container" id={`#${heading}`}>
+        <div className="display-container" id={`${heading}`}>
             <h2>{heading}</h2>
             <div className='content'>
                 {

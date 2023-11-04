@@ -50,8 +50,7 @@ export default function Movies() {
 
 
   return (
-    <div className="container">
-
+    <div className="container" >
       <Search />
       <Slider apiKey={apiKey} trending={Trending} />
       {movies.length >= 5 ? (<Alldisplay heading="Trending Now" allMedia={movies} />) : <></>}

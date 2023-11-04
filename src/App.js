@@ -1,8 +1,9 @@
 import Header from "./components/Header";
-import Movies from "./Files/Movies";
-import Anime from "./Files/Anime";
-import TvShows from './Files/TvShows'
-import Error from "./Files/Error";
+import Movies from "./Pages/Movies";
+import Anime from "./Pages/Anime";
+import TvShows from './Pages/TvShows'
+import Error from "./Pages/Error";
+import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path='/anime' element={<Anime />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
