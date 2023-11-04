@@ -24,7 +24,7 @@ export default function SearchResult({ heading, searchedData }) {
 
     return (
         <div className="display-container" >
-            {!searchedData.length ?
+            {searchedData.length>0 ?
                 (
                     <>
                         <h2>{`Search Results for '${heading}'`}</h2>
@@ -43,7 +43,7 @@ export default function SearchResult({ heading, searchedData }) {
                         </div>}
                     </>
                 ) :
-                <h2>{`The movie '${heading}' does not exist.`}</h2>
+                <h2>{`'${heading}' does not exist.`}</h2>
             }
 
         </div>)
