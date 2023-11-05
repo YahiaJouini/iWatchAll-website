@@ -2,11 +2,13 @@ import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
     function HandleClick(e) {
-        document.querySelector(".nav-bar").classList.toggle('active');
 
         // fixing some css bugs
-        if (document.querySelector(".nav-bar").classList.contains("active")) {
 
+        if(window.innerWidth<=900) {
+            document.querySelector(".nav-bar").classList.toggle('active');
+        
+        if (document.querySelector(".nav-bar").classList.contains("active")) {
             if (document.querySelector('.container')) {
                 document.querySelector('.container').style.opacity = '0';
                 document.querySelector('.search-container').style.opacity = '0';
@@ -18,6 +20,8 @@ export default function Header() {
                 document.querySelector('.search-container').style.opacity = '1';
             }
         }
+        }
+        
     }
     return (
         <header>
