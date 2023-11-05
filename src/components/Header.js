@@ -1,27 +1,28 @@
 import { NavLink, Link } from "react-router-dom";
 
 export default function Header() {
-    function HandleClick(e) {
+    function HandleClick() {
 
         // fixing some css bugs
 
-        if(window.innerWidth<=900) {
+        if (window.innerWidth <= 900) {
             document.querySelector(".nav-bar").classList.toggle('active');
-        
-        if (document.querySelector(".nav-bar").classList.contains("active")) {
-            if (document.querySelector('.container')) {
-                document.querySelector('.container').style.opacity = '0';
-                document.querySelector('.search-container').style.opacity = '0';
-            }
+            document.querySelector("body").classList.toggle('manage-overflow');
+            if (document.querySelector(".nav-bar").classList.contains("active")) {
+                if (document.querySelector('.container')) {
+                    document.querySelector('.container').style.opacity = '0';
+                    document.querySelector('.search-container').style.opacity = '0';
+                }
+                
 
-        } else {
-            if (document.querySelector('.container')) {
-                document.querySelector('.container').style.opacity = '1';
-                document.querySelector('.search-container').style.opacity = '1';
+            } else {
+                if (document.querySelector('.container')) {
+                    document.querySelector('.container').style.opacity = '1';
+                    document.querySelector('.search-container').style.opacity = '1';
+                }
             }
         }
-        }
-        
+
     }
     return (
         <header>
