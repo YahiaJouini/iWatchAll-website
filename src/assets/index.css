@@ -159,7 +159,7 @@ ul li a:hover::after {
   width: 70%;
   margin: 0 auto;
   transition: all .35s ease;
-  min-height: 60.3vh;
+  min-height: 62vh;
 }
 
 .search-container {
@@ -437,9 +437,10 @@ ul li a:hover::after {
 /* AllDisplay Styling */
 
 .display-container .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0px 60px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 0 25px;
   margin-bottom: 20px;
 }
 
@@ -518,6 +519,15 @@ ul li a:hover::after {
   cursor: not-allowed;
 }
 
+@media only screen and (max-width:1650px) {
+  .poster-container {
+    width: 185px;
+    margin: 60px 0;
+    height: 265px;
+  }
+
+}
+
 @media only screen and (max-width:1100px) {
 
 
@@ -537,7 +547,7 @@ ul li a:hover::after {
 
 }
 
-@media only screen and (max-width:399px) {
+@media only screen and (max-width:650px) {
 
   .slider-container {
     align-items: center;
@@ -550,19 +560,22 @@ ul li a:hover::after {
     align-items: center;
   }
 
-  .poster-container {
-    width: 150px;
-    height: 230px;
-  }
-
   .more {
     width: 220px;
   }
 }
 
+@media only screen and (max-width:450px) {
+  .poster-container {
+    width: 138px;
+    margin: 60px 0;
+    height: 225px;
+  }
+}
+
 /* Error Page */
 .error-container {
-  min-height: 60.3vh;
+  min-height: 62vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -598,14 +611,11 @@ ul li a:hover::after {
 @media only screen and (max-width:880px) {
   .error-card {
     width: 80%;
-
   }
 
   .title {
     font-size: 25px;
   }
-
-
 }
 
 
