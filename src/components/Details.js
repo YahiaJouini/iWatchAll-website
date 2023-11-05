@@ -62,7 +62,5 @@ export default function Details({ HandleDetail, detail }) {
                 </div>
             </div>
         </div>
-
-
     )
 }
