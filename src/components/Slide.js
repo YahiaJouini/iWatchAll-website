@@ -25,16 +25,22 @@ export default function Slide({ genreList, length, setSlide, title, rate, poster
     const FilterGenres = genres.filter(genre => genreList.includes(genre.id));
     const GenresResult = FilterGenres.map(genre => genre.name);
 
+    function clean(str) {
+        while (window.innerWidth<=450 && str.length>450){
+            str=str.substring(0,str.lastIndexOf('.')-1)
+        }
+        return str
+    }
+
 
     // Sliding the Slider component
     function HandleRightClick() {
         setSlide(prev => prev >= length ? prev - length : prev + 1);
-
     }
+
     function HandleLeftClick() {
         setSlide(prev => prev <= 0 ? prev + length : prev - 1);
     }
-
 
     return (
         <div className="slider" style={{ backgroundImage: `URL(${posterPath})` }}>
@@ -45,7 +51,7 @@ export default function Slide({ genreList, length, setSlide, title, rate, poster
                     <small>{rate.toFixed(1)} {<Star />}</small>
                     <h2>{title}</h2>
                     <h4>Genre : {GenresResult.map(genre => genre + " ").join('- ')} </h4>
-                    <p>{overview}</p>
+                    <p>{clean(overview)}</p>
                 </div>
             </div>
             <button onClick={HandleRightClick}><RightArrow className='arrow-icon' /></button>

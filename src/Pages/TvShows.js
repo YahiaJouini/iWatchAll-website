@@ -69,7 +69,7 @@ export default function Movies() {
       
         <div className="container">
           <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
-          <SearchResult heading={`Search Results for ${input}`} searchedData={searchedData} />
+          <SearchResult heading={input} searchedData={searchedData} />
         </div>
         
       </>

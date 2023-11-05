@@ -7,12 +7,12 @@
   scroll-behavior: smooth;
 }
 
-/* Start Header styling */
 body {
   font-family: 'Overpass', sans-serif;
   background: #ecf1f4;
 }
 
+/* Start Header styling */
 header {
   background-color: #2b2c43;
   margin-bottom: 40px;
@@ -36,14 +36,23 @@ header {
   color: #03a8ff;
 }
 
-header nav {
-  width: 450px;
+.lines {
+  display: none;
 }
 
-header nav ul {
+.nav-bar ul {
   display: flex;
-  justify-content: space-between;
-  list-style-type: none;
+  list-style: none;
+}
+
+.nav-bar ul li a {
+  display: block;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.2s;
+  margin: 0 5px;
+  text-decoration: none;
 }
 
 a {
@@ -76,18 +85,80 @@ ul li a:hover::after {
   transition: width 0.12s ease;
 }
 
+@media only screen and (max-width:1100px) {
+  .header-content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width:900px) {
+  .lines {
+    display: block;
+    cursor: pointer;
+  }
+
+  .line {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+  }
+
+  .nav-bar {
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: 0;
+    background-color: #2b2c43;
+    transition: all .2s ease;
+    overflow: hidden;
+  }
+
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 60px auto 0 auto;
+    text-align: center;
+    transition: all .1s ease;
+    opacity: 0;
+  }
+
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+    font-size: 26px;
+  }
+
+  .nav-bar.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 1000;
+    height: 100%;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+
+}
 
 /* Start Search Bar styling */
 
 .container {
   width: 70%;
   margin: 0 auto;
+  transition: all .35s ease;
 }
 
 .search-container {
   display: flex;
   height: 46px;
   margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all .5s ease;
 }
 
 .search-container input {
@@ -99,6 +170,7 @@ ul li a:hover::after {
   padding-left: 30px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   font-size: 18px;
+
 }
 
 .search-container button {
@@ -114,6 +186,23 @@ ul li a:hover::after {
 }
 
 
+@media only screen and (max-width:1100px) {
+  .container {
+    width: 93%;
+  }
+}
+
+@media only screen and (max-width:440px) {
+  .search-container input {
+    font-size: 16px;
+  }
+
+  .search-container button {
+    font-size: 18px;
+  }
+
+}
+
 
 /* Start Styling The Slider */
 
@@ -122,6 +211,7 @@ ul li a:hover::after {
   flex-direction: column;
   justify-content: center;
   margin-bottom: 80px;
+
 }
 
 .slider-container>h2 {
@@ -237,8 +327,133 @@ ul li a:hover::after {
   letter-spacing: 1px;
 }
 
-/* AllDisplay Styling */
+@media only screen and (max-width:1300px) {
+  .slider {
+    height: 400px;
+    padding: 0 10px;
+  }
 
+  .slider img {
+    height: 220px;
+  }
+
+  .slider .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px;
+  }
+
+  .slider button {
+    padding: 5px;
+  }
+
+  .slider button:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+  }
+
+  .arrow-icon {
+    size: 1.4rem;
+    font-size: 20px;
+  }
+
+  .info small {
+    color: gold;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 4px;
+  }
+
+  .info h4 {
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+    font-size: 14px;
+  }
+
+  .info p {
+    color: #e9eeee;
+    letter-spacing: 1px;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  .info h2 {
+    margin: 6px 0;
+    font-size: 22px;
+    letter-spacing: 1px;
+  }
+
+}
+
+
+
+@media only screen and (max-width:800px) {
+
+  .slider {
+    height: 420px;
+    padding: 0 5px;
+  }
+
+  .slider img {
+    display: none;
+  }
+
+  .slider .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 12px;
+  }
+
+  .slider button {
+    padding: 4px;
+  }
+
+  .slider::before {
+    background-color: rgba(32, 32, 32, 0.7);
+  }
+
+  .arrow-icon {
+    size: 1.4rem;
+    font-size: 20px;
+  }
+
+  .info small {
+    color: gold;
+    font-size: 1.1rem;
+    display: flex;
+    gap: 4px;
+  }
+
+  .info h4 {
+    color: white;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+  }
+
+  .info p {
+    color: #e9eeee;
+    letter-spacing: 0px;
+    width: 100%;
+    font-size: 15px;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    line-height: 1.4;
+  }
+
+  .info h2 {
+    margin: 6px 0;
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+
+}
+
+/* AllDisplay Styling */
 
 .display-container .content {
   display: grid;
@@ -322,16 +537,60 @@ ul li a:hover::after {
   cursor: not-allowed;
 }
 
+@media only screen and (max-width:1100px) {
 
 
+  .display-container .content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 0 25px;
+    margin-bottom: 20px;
+  }
+
+  .poster-container {
+    width: 175px;
+    margin: 60px 0;
+    height: 255px;
+    transition: all .2s ease;
+  }
+
+}
+
+@media only screen and (max-width:399px) {
+  .slider-container {
+    align-items: center;
+
+  }
+
+  .display-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .poster-container {
+    width: 200px;
+    margin: 60px 0;
+    height: 280px;
+    transition: all .2s ease;
+  }
+
+  .more {
+    width: 220px;
+  }
+
+}
 
 /* Error Page */
+.error-container {
+  height: 61.2vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .error-card {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   max-width: 800px;
   padding: 2rem;
   background-color: #fff;
@@ -358,6 +617,22 @@ ul li a:hover::after {
   font-size: 1.1em;
 }
 
+@media only screen and (max-width:880px) {
+  .error-card {
+    width: 80%;
+
+  }
+
+  .title {
+    font-weight: 700;
+    color: rgb(31 41 55);
+    font-size: 25px;
+    text-align: center;
+  }
+
+
+}
+
 
 /* Poster Info Display */
 .popup-container {
@@ -370,7 +645,6 @@ ul li a:hover::after {
   z-index: 999;
   display: flex;
   align-items: center;
-
 }
 
 .stop-scrolling {
@@ -430,13 +704,14 @@ ul li a:hover::after {
 
 .info-button {
   position: relative;
+  width: 100%;
 }
 
 .info-button button {
   position: absolute;
   right: 0;
   top: 0;
-  padding: 10px;
+  padding: 12px;
   background: none;
   border: none;
   color: #e7ecec;
@@ -449,6 +724,79 @@ ul li a:hover::after {
 .info-button .close-icon:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+
+
+@media only screen and (max-width:1300px) {
+  .detail-container {
+    width: 80%;
+    height: 355px;
+    overflow: auto;
+  }
+
+  .detail-container .info p {
+    margin-top: 10px;
+    width: 100%;
+    line-height: 1.4;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .detail-container .info h1 {
+    font-size: 32px;
+    letter-spacing: 1px;
+    margin: 5px 0 10px 0;
+  }
+
+
+}
+
+@media only screen and (max-width:900px) {
+  .detail-container .info h1 {
+    font-size: 26px;
+    letter-spacing: 1px;
+    margin: 5px 0 10px 0;
+  }
+  .info-button button { 
+    background-color: #bec3df;
+    border-radius: 0 10px 0 10px;
+    padding: 5px;
+    color: #2b2c43;
+  }
+  .detail-container {
+    width: 90%;
+    height: 355px;
+    overflow: auto;
+  }
+
+  .detail-container .info p {
+    margin-top: 10px;
+    width: 100%;
+    line-height: 1.4;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+}
+
+
+@media only screen and (max-width:600px) {
+
+  .detail-container {
+    width: 95%;
+    height: 300px;
+  }
+
+  .info-button a {
+    background-color: #DEE4E7;
+    padding: 6px 8px;
+    font-size: 16px;
+  }
+
+  .detail-container img {
+    display: none;
+  }
+
+
 }
 
 
@@ -499,4 +847,31 @@ footer .social {
 footer .social:hover {
   color: #03a8ff;
   cursor: pointer;
+}
+
+@media only screen and (max-width:900px) {
+
+  footer p {
+    margin: 14px 0;
+    width: 90%;
+    line-height: 1.6;
+    font-size: 16px;
+  
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+  }
+  
+  footer .social-links {
+    display: flex;
+    width: 20%;
+    justify-content: space-around;
+    size: 2rem;
+  }
+  footer .social {
+    color: white;
+    margin-bottom: 10px;
+  }
+  
 }
