@@ -70,7 +70,7 @@ export default function Movies() {
           <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
           <SearchResult heading={input} searchedData={searchedData} />
         </div>
-        
+
 
       </>
     )

@@ -97,9 +97,14 @@ ul li a:hover::after {
     cursor: pointer;
   }
 
+  .line:nth-child(2) {
+    margin-left: auto;
+    width: 70%;
+  }
+
   .line {
     width: 30px;
-    height: 3px;
+    height: 2px;
     background-color: white;
     margin: 6px 0;
   }
@@ -195,11 +200,11 @@ ul li a:hover::after {
 
 @media only screen and (max-width:440px) {
   .search-container input {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .search-container button {
-    font-size: 18px;
+    font-size: 17px;
   }
 
 }
@@ -339,8 +344,6 @@ ul li a:hover::after {
   }
 
   .slider .content {
-    display: flex;
-    align-items: center;
     justify-content: space-around;
     gap: 12px;
   }
@@ -359,33 +362,19 @@ ul li a:hover::after {
     font-size: 20px;
   }
 
-  .info small {
-    color: gold;
-    font-size: 1.1rem;
-    display: flex;
-    gap: 4px;
-  }
-
   .info h4 {
-    color: white;
-    letter-spacing: 1px;
     margin-bottom: 8px;
     font-size: 14px;
   }
 
   .info p {
-    color: #e9eeee;
-    letter-spacing: 1px;
     width: 100%;
     font-size: 16px;
-    margin-top: 10px;
-    line-height: 1.4;
   }
 
   .info h2 {
     margin: 6px 0;
     font-size: 22px;
-    letter-spacing: 1px;
   }
 
 }
@@ -403,31 +392,21 @@ ul li a:hover::after {
     display: none;
   }
 
-  .slider .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 12px;
-  }
-
   .slider button {
     padding: 4px;
   }
 
   .slider::before {
-    background-color: rgba(32, 32, 32, 0.7);
+    background-color: rgba(32, 32, 32, 0.65);
+  }
+
+  .slider:hover::before {
+    background-color: rgba(32, 32, 32, 0.65);
   }
 
   .arrow-icon {
     size: 1.4rem;
     font-size: 20px;
-  }
-
-  .info small {
-    color: gold;
-    font-size: 1.1rem;
-    display: flex;
-    gap: 4px;
   }
 
   .info h4 {
@@ -439,17 +418,14 @@ ul li a:hover::after {
   .info p {
     color: #e9eeee;
     letter-spacing: 0px;
-    width: 100%;
-    font-size: 15px;
+    font-size: 13px;
     margin-top: 5px;
     letter-spacing: 1px;
-    line-height: 1.4;
   }
 
   .info h2 {
-    margin: 6px 0;
-    font-size: 19px;
-    letter-spacing: 1px;
+    font-size: 18px;
+    letter-spacing: 0;
   }
 
 }
@@ -553,15 +529,15 @@ ul li a:hover::after {
     width: 175px;
     margin: 60px 0;
     height: 255px;
-    transition: all .2s ease;
   }
 
 }
 
 @media only screen and (max-width:399px) {
+
   .slider-container {
     align-items: center;
-
+    gap: 0 20px;
   }
 
   .display-container {
@@ -571,10 +547,8 @@ ul li a:hover::after {
   }
 
   .poster-container {
-    width: 200px;
-    margin: 60px 0;
-    height: 280px;
-    transition: all .2s ease;
+    width: 150px;
+    height: 230px;
   }
 
   .more {
@@ -624,10 +598,7 @@ ul li a:hover::after {
   }
 
   .title {
-    font-weight: 700;
-    color: rgb(31 41 55);
     font-size: 25px;
-    text-align: center;
   }
 
 
@@ -678,6 +649,7 @@ ul li a:hover::after {
 .info-button a {
   background-color: #DEE4E7;
   padding: 8px 10px;
+
 }
 
 .data-genre span {
@@ -686,12 +658,10 @@ ul li a:hover::after {
 }
 
 .detail-container .info p {
-  margin-top: 30px;
-  width: 100%;
+  margin: 10px 0 30px 0;
   line-height: 1.6;
   color: rgb(197, 210, 221);
   font-size: 18px;
-  margin-bottom: 30px;
 }
 
 .star {
@@ -731,31 +701,23 @@ ul li a:hover::after {
   .detail-container {
     width: 80%;
     height: 355px;
-    overflow: auto;
   }
 
   .detail-container .info p {
-    margin-top: 10px;
-    width: 100%;
     line-height: 1.4;
     font-size: 14px;
-    margin-bottom: 20px;
   }
 
   .detail-container .info h1 {
     font-size: 32px;
-    letter-spacing: 1px;
     margin: 5px 0 10px 0;
   }
-
 
 }
 
 @media only screen and (max-width:900px) {
   .detail-container .info h1 {
     font-size: 26px;
-    letter-spacing: 1px;
-    margin: 5px 0 10px 0;
   }
 
   .info-button button {
@@ -768,21 +730,15 @@ ul li a:hover::after {
   .detail-container {
     width: 90%;
     height: 355px;
-    overflow: auto;
   }
 
   .detail-container .info p {
-    margin-top: 10px;
-    width: 100%;
-    line-height: 1.4;
-    font-size: 14px;
-    margin-bottom: 30px;
+    margin: 10px 0 30px 0;
   }
 }
 
 
 @media only screen and (max-width:600px) {
-
   .detail-container {
     width: 95%;
     height: 300px;
@@ -797,7 +753,6 @@ ul li a:hover::after {
   .detail-container img {
     display: none;
   }
-
 
 }
 
