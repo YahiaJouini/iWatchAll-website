@@ -4,7 +4,6 @@ export default function Header() {
     function HandleClick(e) {
         document.querySelector(".nav-bar").classList.toggle('active');
 
-
         // fixing some css bugs
         if (document.querySelector(".nav-bar").classList.contains("active")) {
 
