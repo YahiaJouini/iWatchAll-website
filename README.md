@@ -6,7 +6,7 @@ iWatchAll is a web application built with React that allows users to search for 
 ## Key Features
 
 - Search for movies, TV shows, and anime.
-- View detailed information about each media item, including cast, crew, ratings, and more.
+- View detailed information about each media item, including overviews, ratings, and more.
 - Classify media by genre for easy navigation.
 
 ## Technologies Used
