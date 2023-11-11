@@ -19,7 +19,7 @@ export default function Details({ HandleDetail, detail }) {
 
 
             if (detail.name) {
-                fetch(`http://api.themoviedb.org/3/tv/${detail.id}/videos?api_key=${apiKey}`)
+                fetch(`https://api.themoviedb.org/3/tv/${detail.id}/videos?api_key=${apiKey}`)
                     .then(res => res.json()).then(data => setTrailerPath(data.results));
             } else {
                 fetch(`https://api.themoviedb.org/3/movie/${detail.id}/videos?api_key=${apiKey}`)

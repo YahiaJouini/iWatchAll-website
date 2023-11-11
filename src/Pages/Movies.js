@@ -47,11 +47,12 @@ export default function Movies() {
       && FiltredResult.overview
       && new Date(FiltredResult.release_date).getFullYear() === date));
 
-    setCrime(movies.filter(movie => movie.genre_ids.includes(80) || movie.genre_ids.includes(53)))
-    setRomance(movies.filter(movie => movie.genre_ids.includes(10749) || movie.genre_ids.includes(18)));
-    setComedy(movies.filter(movie => movie.genre_ids.includes(35)));
-    setAnimation(movies.filter(movie => movie.genre_ids.includes(16)));
-    setDocumentary(movies.filter(movie => movie.genre_ids.includes(99)));
+
+    setCrime(movies.filter(movie => movie.genre_ids?.includes(80) || movie.genre_ids?.includes(53)))
+    setRomance(movies.filter(movie => movie.genre_ids?.includes(10749) || movie.genre_ids?.includes(18)));
+    setComedy(movies.filter(movie => movie.genre_ids?.includes(35)));
+    setAnimation(movies.filter(movie => movie.genre_ids?.includes(16)));
+    setDocumentary(movies.filter(movie => movie.genre_ids?.includes(99)));
 
   }, [page]);
 
@@ -70,7 +71,7 @@ export default function Movies() {
           <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
           <SearchResult heading={input} searchedData={searchedData} />
         </div>
-        
+
       </>
     )
   }

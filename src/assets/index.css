@@ -831,3 +831,47 @@ footer .social:hover {
     font-size: 14px;
   }
 }
+
+.display-poster-loading {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px, rgba(14, 30, 37, 0.42) 0px 2px 12px 0px;
+  margin-bottom: 20px;
+  background-color: rgb(240, 240, 240);
+  display: flex;
+  border: 1px solid black;
+  padding-bottom: 10px;
+
+
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+}
+
+.lds-dual-ring:after {
+
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #5a5a5a;
+  border-color: #5a5a5a transparent #5a5a5a transparent;
+  animation: lds-dual-ring 1.5s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
