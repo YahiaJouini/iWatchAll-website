@@ -41,7 +41,7 @@ export default function Movies() {
         }
       });
 
-    setFiltredResults(Tvshow.filter(show => !show.genre_ids.includes(16)));
+    setFiltredResults(Tvshow.filter(show => !show.genre_ids?.includes(16)));
 
 
     setTrending(FiltredResults.filter(FR =>
@@ -49,11 +49,11 @@ export default function Movies() {
       && FR.overview
       && new Date(FR.first_air_date).getFullYear() === date));
 
-    setCrime(FiltredResults.filter(FR => FR.genre_ids.includes(80) || FR.genre_ids.includes(53)));
-    setRomance(FiltredResults.filter(FR => FR.genre_ids.includes(10749) || FR.genre_ids.includes(18)));
-    setComedy(FiltredResults.filter(FR => FR.genre_ids.includes(35)));
-    setDocumentary(FiltredResults.filter(FR => FR.genre_ids.includes(99)));
-    setfamily(FiltredResults.filter(FR => FR.genre_ids.includes(10751)));
+    setCrime(FiltredResults.filter(FR => FR.genre_ids?.includes(80) || FR.genre_ids?.includes(53)));
+    setRomance(FiltredResults.filter(FR => FR.genre_ids?.includes(10749) || FR.genre_ids?.includes(18)));
+    setComedy(FiltredResults.filter(FR => FR.genre_ids?.includes(35)));
+    setDocumentary(FiltredResults.filter(FR => FR.genre_ids?.includes(99)));
+    setfamily(FiltredResults.filter(FR => FR.genre_ids?.includes(10751)));
 
   }, [page]);
 
@@ -66,12 +66,12 @@ export default function Movies() {
   if (isSearching) {
     return (
       <>
-      
+
         <div className="container">
           <Search placeholder={"Discover new tv-shows to watch..."} setInput={setInput} setIssearching={setIssearching} />
           <SearchResult heading={input} searchedData={searchedData} />
         </div>
-        
+
       </>
     )
   }

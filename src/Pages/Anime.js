@@ -48,13 +48,13 @@ export default function Movies() {
     setTrending(FiltredResults.filter(FiltredResult =>
       FiltredResult.vote_average >= 7
       && FiltredResult.overview
-      && FiltredResult.genre_ids.includes(16)
+      && FiltredResult.genre_ids?.includes(16)
       && new Date(FiltredResult.first_air_date).getFullYear() === date));
 
-    setCrime(FiltredResults.filter(FR => FR.genre_ids.includes(80) || FR.genre_ids.includes(53)))
-    setRomance(FiltredResults.filter(FR => FR.genre_ids.includes(10749) || FR.genre_ids.includes(18)));
-    setComedy(FiltredResults.filter(FR => FR.genre_ids.includes(35)));
-    setfamily(FiltredResults.filter(FR => FR.genre_ids.includes(10751)));
+    setCrime(FiltredResults.filter(FR => FR.genre_ids?.includes(80) || FR.genre_ids?.includes(53)))
+    setRomance(FiltredResults.filter(FR => FR.genre_ids?.includes(10749) || FR.genre_ids?.includes(18)));
+    setComedy(FiltredResults.filter(FR => FR.genre_ids?.includes(35)));
+    setfamily(FiltredResults.filter(FR => FR.genre_ids?.includes(10751)));
 
   }, [page]);
 
